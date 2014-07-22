@@ -30,31 +30,24 @@ The script takes the following steps in order to transform the original dataset:
 
 1.    **Load Information**
       * _Download the original file_: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.
-      * <b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
-2.    <b>Merge the training and the test sets to create one data set</b>
-      * <b>Load Datasets</b>: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.
-      * <b>Merge the Datasets</b>: The test and train data are combined to create single datasets for the X, Y and Subject tables.
-3.    <b>Extract only the measurements on the mean and standard deviation for each measurement</b>
-      * <b>Select correct columns</b>: Using `grep` over the list of variables, locate those where `mean()` and `std()` are used since those are the only ones required for the final dataset.
-      * <b>Extract variables</b>: Reduce the original large dataset by selecting only the variables found on the prior step.
-      * <b>Clean memory</b>: Because these are large datasets, cleanup as much memory as possible by removing all variables that are not needed.
-4.    <b>Use descriptive activity names to name the activities in the data set</b>
-      * <b>Convert Activity Column to Factors</b>: First convert the existing Activity column on the dataset to factors in order to replace it with descriptive names.
-      * <b>Change the Factor names with descriptive Activity Names</b>: Using the Descriptive Activity Lables from the `activity_labels.txt` file, replace teh current factor.<br>
+      * _Unzip file_: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
+2.    **Merge the training and the test sets to create one data set**
+      * _Load Datasets_: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.
+      * _Merge the Datasets_: The test and train data are combined to create single datasets for the X, Y and Subject tables.
+3.    **Extract only the measurements on the mean and standard deviation for each measurement**
+      * _Select correct columns_: Using `grep` over the list of variables, locate those where `mean()` and `std()` are used since those are the only ones required for the final dataset.
+      * _Extract variables_: Reduce the original large dataset by selecting only the variables found on the prior step.
+      * _Clean memory_: Because these are large datasets, cleanup as much memory as possible by removing all variables that are not needed.
+4.    **Use descriptive activity names to name the activities in the data set**
+      * _Convert Activity Column to Factors_: First convert the existing Activity column on the dataset to factors in order to replace it with descriptive names.
+      * _Change the Factor names with descriptive Activity Names_: Using the Descriptive Activity Lables from the `activity_labels.txt` file, replace teh current factor.
+5.    **Appropriately label the data set with descriptive variable names**
+      * <b>Extend Accronyms on variable names</b>: Replace accronyms on the variable names with full words using "camel-case" naming stlye.<br>
+      * <b>Remove special characters</b>: To improve readibility and usability, remove all special characters from the names.
+6.    **Write first dataset to file**: At this point the first dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet.csv`
+7.    **Create a second dataset with means**: A second, independent tidy data is calculated with the average of each variable for each activity and subject. This is accomplished by using the `aggregate()` function.
+8.    **Write second dataset to file**: The second dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet2.csv`
 
-
-<li><b>Appropriately label the data set with descriptive variable names</b></li>
-* <b>Extend Accronyms on variable names</b>: Replace accronyms on the variable names with full words using "camel-case" naming stlye.<br>
-* <b>Remove special characters</b>: To improve readibility and usability, remove all special characters from the names.
-
-
-<li><b>Write first dataset to file</b>: At this point the first dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet.csv`</li>
-
-<li><b>Create a second dataset with means</b>: A second, independent tidy data is calculated with the average of each variable for each activity and subject. This is accomplished by using the `aggregate()` function.</li>
-
-<li><b>Write second dataset to file</b>: The second dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet2.csv`</li>
-
-</ol>
 
 ## Resulting Datasets
 

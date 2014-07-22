@@ -30,11 +30,11 @@ The script takes the following steps in order to transform the original dataset:
 
 <ol>
 <li><b>Load Information</b></li>
-      <ul>
-      <li><b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.</li>
 
-      <li><b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.</li>
-      </ul>
+* <b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.
+
+* <b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
+
 
 <li><b>Merge the training and the test sets to create one data set</b></li>
       <ul>

@@ -28,17 +28,16 @@ All transformations to the data are executed by running the script:
 
 The script takes the following steps in order to transform the original dataset:
 
-<ol>
-<li><b>Load Information</b></li>
+1.    <b>Load Information</b>
 
-* <b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.<br>
+      * <b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.<br>
 
-* <b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
+      * <b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
 
 
-<li><b>Merge the training and the test sets to create one data set</b></li>
+2.    <b>Merge the training and the test sets to create one data set</b>
 
-* <b>Load Datasets</b>: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.<br>
+      * <b>Load Datasets</b>: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.<br>
 * <b>Merge the Datasets</b>: The test and train data are combined to create single datasets for the X, Y and Subject tables.</li>
 
 
@@ -70,9 +69,9 @@ The script takes the following steps in order to transform the original dataset:
 
 ## Resulting Datasets
 
-# tidySet1.csv
+### tidySet1.csv
 
-# tidySet2.csv
+### tidySet2.csv
 
 
 The following describes descriptions of the 9 variables in the dataset are taken

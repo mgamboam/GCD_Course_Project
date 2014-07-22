@@ -4,9 +4,7 @@ GCD Course Project
 
 ## Introduction
 
-represent data collected from the accelerometers from the Samsung Galaxy S smartphone
-
-This assignment uses data from
+The current project uses data collected from the accelerometers from the Samsung Galaxy S smartphone. This assignment uses data from
 the <a href="http://archive.ics.uci.edu/ml/">UC Irvine Machine
 Learning Repository</a>, a popular repository for machine learning
 datasets. In particular, it uses the "Human Activity Recognition Using Smartphones Data Set". The datasource can be found at:
@@ -36,7 +34,7 @@ The following scripts are included with this solution:
 
 A few additional considerations: 
 
-* The <b>run_analysis.R</b> script downolds the original dataset and unzips it if it is not found on the specified `data` directory. The file is large so please exercise caution if running the script.
+* The <b>run_analysis.R</b> script downolds the original dataset and unzips it if it is not found on the specified `/data` directory. The file is large so please exercise caution if running the script.
 
 * Both the original dataset [60MB] and the first of the two resulting datasets [10MB] are rather large, so you need to have space and enough ram to run the script without problems.
 

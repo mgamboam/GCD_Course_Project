@@ -52,7 +52,7 @@ if(!exists("sbjFullSet")){
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. ----
 # Columns that contain the 'mean' and 'standard' deviation for the measurements
 # list of columns that have mean or standard in their name
-colSel <- grep("\\bmean|\\bstd", names(xFullSet))
+colSel <- grep("\\bmean\\(\\)|\\bstd\\(\\)", names(xFullSet))
 
 # Create tidy dataset with all the information combined
 tidySet <- cbind(Subject=sbjFullSet$V1,Activity=yFullSet$V1, xFullSet[,colSel])
@@ -65,12 +65,18 @@ tidySet$Activity <- mapvalues(tidySet$Activity, from = levels(tidySet$Activity),
 
 
 # 4. Appropriately labels the data set with descriptive variable names. -----
+# Extend all variable names to make them fully explicit and Camel-cased
+names(tidySet) <- gsub("^t", "time", names(tidySet))
+names(tidySet) <- gsub("^f", "frequency", names(tidySet))
+names(tidySet) <- gsub("Acc", "Acceleration", names(tidySet))
+names(tidySet) <- gsub("Mag", "Magnitude", names(tidySet))
+names(tidySet) <- gsub("Gyro", "Gyroscope", names(tidySet))
+names(tidySet) <- gsub("mean()", "Mean", names(tidySet))
+names(tidySet) <- gsub("std()", "StandardDeviation", names(tidySet))
+
 # Remove - ( ) and other special characters from column names so they are easier to read
 names(tidySet) <- gsub("-|\\(|\\)","",names(tidySet))
-# PENDING
-# Change all starting "t" wtih "time" and all starting "f" with "frequency"
-gsub("^t", "time", x$V2)
-gsub("^f", "frequency", x$V2)
+
 
 # Write the dataset to a CSV file
 write.csv(tidySet, "data/tidySet1.csv", append=FALSE)

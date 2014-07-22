@@ -23,6 +23,7 @@ Variables in the original dataset and the resulting "tidy datasets" from this pr
 ## Transformations applied
 
 All transformations to the data are executed by running the script:
+
       run_analysis.R
 
 The script takes the following steps in order to transform the original dataset:

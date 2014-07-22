@@ -29,23 +29,15 @@ All transformations to the data are executed by running the script:
 The script takes the following steps in order to transform the original dataset:
 
 1.    <b>Load Information</b>
-
-      * <b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.<br>
-
+      * <b>Download the original file</b>: The script checks if the `/data` directory is present, otherwise it creates it. Then verifies if the original, zipped, raw datafile exists inside that directory, if it doesn't, it proceeds to download the file.
       * <b>Unzip file</b>: The script verifies if the raw data files exist by verifying if the `/UCI HAR Dataset` directory exists, otherwise it unzips the file that creates the folder and the necessary data.
-
-
 2.    <b>Merge the training and the test sets to create one data set</b>
-
-      * <b>Load Datasets</b>: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.<br>
-* <b>Merge the Datasets</b>: The test and train data are combined to create single datasets for the X, Y and Subject tables.</li>
-
-
-<li><b>Extract only the measurements on the mean and standard deviation for each measurement</b></li>
-
-* <b>Select correct columns</b>: Using `grep` over the list of variables, locate those where `mean()` and `std()` are used since those are the only ones required for the final dataset.<br>
-* <b>Extract variables</b>: Reduce the original large dataset by selecting only the variables found on the prior step. <br>
-* <b>Clean memory</b>: Because these are large datasets, cleanup as much memory as possible by removing all variables that are not needed.<br>
+      * <b>Load Datasets</b>: Check in memory to see if the datasets have already been uploaded, if not, proceed to upload the different datasets from the original files. Given these are large datasetns, it is important to check memory for them so that they don't need to be loaded again.
+      * <b>Merge the Datasets</b>: The test and train data are combined to create single datasets for the X, Y and Subject tables.
+3.    <b>Extract only the measurements on the mean and standard deviation for each measurement</b></li>
+      * <b>Select correct columns</b>: Using `grep` over the list of variables, locate those where `mean()` and `std()` are used since those are the only ones required for the final dataset.
+      * <b>Extract variables</b>: Reduce the original large dataset by selecting only the variables found on the prior step.
+      * <b>Clean memory</b>: Because these are large datasets, cleanup as much memory as possible by removing all variables that are not needed.<br>
 
 
 <li><b>Uses descriptive activity names to name the activities in the data set</b></li>

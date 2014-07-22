@@ -1,10 +1,12 @@
 ## Getting and Cleaning Data Course Project
 # By: Mario Gamboa
+#
+# Created: 07/09/2014
+# Last updated: 07/12/2014
 
 # 0. Download the files from the web, unzip and upload into tables...----
 # Location of dataset
 urlDS = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-dirData = "data"
 
 # Check/create data folder
 if(!file.exists("data")) { dir.create("data") }
@@ -63,8 +65,12 @@ tidySet$Activity <- mapvalues(tidySet$Activity, from = levels(tidySet$Activity),
 
 
 # 4. Appropriately labels the data set with descriptive variable names. -----
-# Remove - ( ) and other special characters from column names so they are easier to process
+# Remove - ( ) and other special characters from column names so they are easier to read
 names(tidySet) <- gsub("-|\\(|\\)","",names(tidySet))
+# PENDING
+# Change all starting "t" wtih "time" and all starting "f" with "frequency"
+gsub("^t", "time", x$V2)
+gsub("^f", "frequency", x$V2)
 
 # Write the dataset to a CSV file
 write.csv(tidySet, "data/tidySet1.csv", append=FALSE)
@@ -74,4 +80,4 @@ write.csv(tidySet, "data/tidySet1.csv", append=FALSE)
 tidySet2 <- aggregate(.~Subject+Activity, tidySet, mean)
 
 # Write results to a separate file
-write.csv(tidySet, "data/tidySet2.csv", append=FALSE)
+write.table(tidySet2, "data/tidySet2.csv", append=FALSE)

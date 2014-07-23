@@ -46,29 +46,21 @@ The script takes the following steps in order to transform the original dataset:
       * <b>Remove special characters</b>: To improve readibility and usability, remove all special characters from the names.
 6.    **Write first dataset to file**: At this point the first dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet.csv`
 7.    **Create a second dataset with means**: A second, independent tidy data is calculated with the average of each variable for each activity and subject. This is accomplished by using the `aggregate()` function.
-8.    **Write second dataset to file**: The second dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet2.csv`
+8.    **Write second dataset to file**: With the result from the previous step, the second dataset is complete and can be written to disk. The dataset is saved to the file `./data/tidySet2.csv`
 
+For additional details and information please refer to the comments inside the code file `run_analysis.R`
 
 ## Resulting Datasets
 
+Both resulting datasets include the same list of variables with minor diferences on the data content. The variables can be classified as follows:
+1.    **Subject**: Integer. Values from 1 to 30. Value to represent each of the 30 subjects that were part of the study.
+2.    **Activity**: Factor. Values: `WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING`. Variable that indicates the activity for each measurement (row) in the dataset.
+3.    **Time Dimension Activities**: Numeric. Variables 3 to 42. Include information on variables for the "time" dimension.
+4.    **Frequency Dimension Activities**: Numeric. Variables 43 to 68. Include information on variables for the "frequency" dimension.
+
 ### tidySet1.csv
+Presents a list of all individual readings for all subjects. Each subject had several readings for each of the activities (`WALKING`, `WALKING_UPSTAIRS`, `WALKING_DOWNSTAIRS`, `SITTING`, `STANDING`, `LAYING`)
 
 ### tidySet2.csv
+This dataset presents a summarized information where one line is presented for each subject and each activity. This dataset is a summarization of `tidySet1.csv` by using the `mean` function to create the summary.
 
-
-The following describes descriptions of the 9 variables in the dataset are taken
-from
-the <a href="https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption">UCI
-web site</a>:
-
-<ol>
-<li><b>Date</b>: Date in format dd/mm/yyyy </li>
-<li><b>Time</b>: time in format hh:mm:ss </li>
-<li><b>Global_active_power</b>: household global minute-averaged active power (in kilowatt) </li>
-<li><b>Global_reactive_power</b>: household global minute-averaged reactive power (in kilowatt) </li>
-<li><b>Voltage</b>: minute-averaged voltage (in volt) </li>
-<li><b>Global_intensity</b>: household global minute-averaged current intensity (in ampere) </li>
-<li><b>Sub_metering_1</b>: energy sub-metering No. 1 (in watt-hour of active energy). It corresponds to the kitchen, containing mainly a dishwasher, an oven and a microwave (hot plates are not electric but gas powered). </li>
-<li><b>Sub_metering_2</b>: energy sub-metering No. 2 (in watt-hour of active energy). It corresponds to the laundry room, containing a washing-machine, a tumble-drier, a refrigerator and a light. </li>
-<li><b>Sub_metering_3</b>: energy sub-metering No. 3 (in watt-hour of active energy). It corresponds to an electric water-heater and an air-conditioner.</li>
-</ol>

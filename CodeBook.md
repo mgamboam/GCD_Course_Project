@@ -53,6 +53,7 @@ For additional details and information please refer to the comments inside the c
 ## Resulting Datasets
 
 Both resulting datasets include the same list of variables with minor diferences on the data content. The variables can be classified as follows:
+
 1.    **Subject**: Integer. Values from 1 to 30. Value to represent each of the 30 subjects that were part of the study.
 2.    **Activity**: Factor. Values: `WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING`. Variable that indicates the activity for each measurement (row) in the dataset.
 3.    **Time Dimension Activities**: Numeric. Variables 3 to 42. Include information on variables for the "time" dimension.

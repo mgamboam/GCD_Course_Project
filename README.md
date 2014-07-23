@@ -36,7 +36,7 @@ A few additional considerations:
 
 * The <b>run_analysis.R</b> script downolds the original dataset and unzips it if it is not found on the specified `/data` directory. The file is large so please exercise caution if running the script.
 
-* Both the original dataset [60MB] and the first of the two resulting datasets [10MB] are rather large, so you need to have space and enough ram to run the script without problems.
+* Both the original dataset [60MB] and the first of the two resulting datasets [10MB] are rather large, so you need to have space and enough RAM to run the script without problems.
 
 * The code in the <b>run_analysis.R</b> script is documented to make it easier to read and follow, besides the <b>CodeBook.md</b> file, it is recommended to review the code on that file for additional details.
 
